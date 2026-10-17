@@ -1,16 +1,21 @@
-# Importa o módulo 'csv' nativo do Python, responsável por lidar
-# de forma segura e organizada com arquivos em formato tabular (CSV).
+from os import system
+
+# Importa o módulo 'csv' nativo do Python, responsável por lidar de forma segura e organizada com arquivos em formato tabular (CSV).
+
 import csv
+system('cls')
 
 # Define o caminho completo para o arquivo no Windows.
-# O uso da letra 'r' (raw string) antes das aspas é fundamental para que
-# o Python ignore as barras invertidas ('\'), evitando conflitos de formatação.
+# O uso da letra 'r' (raw string) antes das aspas é fundamental para que o Python ignore as barras invertidas ('\'), evitando conflitos de formatação.
+
 nome_arquivo = r'C:\UNIP\Dados10.csv'
 
 # Exibe uma mensagem inicial no terminal indicando qual arquivo está sendo processado.
+
 print(f'--- Lendo os dados e calculando a temperatura média: {nome_arquivo} ---\n')
 
 # Variáveis acumuladoras para o cálculo da média matemática posterior:
+
 soma_temperaturas = 0.0  # Vai somar o valor de todas as temperaturas válidas
 total_registros = 0  # Vai contar quantas linhas de dados válidas foram lidas
 
