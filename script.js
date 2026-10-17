@@ -132,3 +132,26 @@ buscarSemana();
 //aceita formato YYYY-MM
 //buscarMes("2026-09");
 buscarMes();
+
+// transições de card:
+
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        atualizarCard('ultimo', '24.5', '°C');
+        atualizarCard('dia', '23.8', '°C (Média)');
+        atualizarCard('semana', '22.1', '°C (Média)');
+        atualizarCard('mes', '21.5', '°C (Média)');
+    }, 1500);
+});
+
+function atualizarCard(id, valor, unidade = ''){
+    const elemento = document.getElementById(id);
+    if (elemento){
+        elemento.classList.remove('loading');
+
+        elemento.innerHTML = `
+        <span class="metric-value">${valor}</span>
+        <span class="metric-unit">${unidade}</span>
+        `
+    }
+}
