@@ -61,8 +61,6 @@ async function buscarSemana() {
         criarTabela(dados);
 }
 
-//pega a medição de um mes especifico/ultimos 30dias se não tiver parametro
-//recebe mes e ano no formato YYYY-MM
 async function buscarMes(data) {
     let url = API_URL + "/measurements/month";
     if (data != null) {
