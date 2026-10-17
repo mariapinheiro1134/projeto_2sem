@@ -3,12 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Painel de Medições</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-<section>
+    <header class="navbar">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <h1>Painel de Mediações</h1>
+        </div>
+        <span class="status-badge"><span class="dot"></span>Sistema Ativo</span>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="card card-highlight">
+            <div class="card-header">
+                <h2>Última mediação</h2>
+                <div class="card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+            </div>
+            <div id="ultimo" class="card-body loading">
+                <span class="spinner"></span>Carregando...
+            </div>
+        </section>
+<!-- Mediação do dia -->
+        <section class="card">
+            <div class="card-header">
+                <h2>Mediação do dia</h2>
+                <div class="card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+            </div>
+            <div id="dia" class="card-body loading">
+                <span class="spinner"></span> Carregando...
+            </div>
+        </section>
+        <!-- Mediação da semana -->
+         <section class="card">
+            <div class="card-header">
+                <h2>Mediação da Semana</h2>
+                <div class="card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+            </div>
+            <div id="semana" class="card-body loading">
+                <span class="spinner"></span> Carregando... 
+            </div>
+         </section>
+         <!-- Mediação do mês -->
+         <section class="card">
+            <div class="card-header">
+                <h2>Mediação do Mês</h2>
+                <div class="card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                </div>
+            </div>
+            <div id="mes" class="card-body loading">
+                <span class="spinner"></span> Carregando... 
+            </div>
+         </section>
+    </main>
+<!-- <section>
         <h2>Ultima medição</h2>
         <div id="ultimo">
             Carregando...
@@ -34,6 +94,6 @@
         <div id="mes">
             Carregando...
         </div>
-    </section>
+    </section> -->
 </body>
 </html>

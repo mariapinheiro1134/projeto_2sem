@@ -1,33 +1,219 @@
+/* ==========================================================================
+   VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+:root {
+    --roxo-profundo: #211B35;
+    --ameixa:         #493B69;
+    --violeta:        #8068A8;
+    --lavanda:        #C7B8EA;
+    --lilas-claro:    #F4F0FA;
+    
+    --white:          #FFFFFF;
+    --shadow:         0 10px 25px -5px rgba(33, 27, 53, 0.08);
+    --shadow-hover:   0 15px 30px -5px rgba(33, 27, 53, 0.15);
+    --radius:         16px;
+    --transition:     all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f2f2f2;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--lilas-claro);
+    color: var(--roxo-profundo);
+    min-height: 100vh;
+    padding-bottom: 40px;
 }
 
-h1 {
-    text-align: center;
+/* ==========================================================================
+   CABEÇALHO (NAVBAR)
+   ========================================================================== */
+.navbar {
+    background-color: var(--roxo-profundo);
+    color: var(--white);
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-section {
-    background-color: white;
-    padding: 20px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo svg {
+    stroke: var(--lavanda);
+}
+
+.logo h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.status-badge {
+    background-color: rgba(199, 184, 234, 0.15);
+    color: var(--lavanda);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(199, 184, 234, 0.2);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e; /* Verde de status ativo */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+/* ==========================================================================
+   GRID DO DASHBOARD
+   ========================================================================== */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* ==========================================================================
+   ESTILO DOS CARTÕES (CARDS)
+   ========================================================================== */
+.card {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(128, 104, 168, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--lavanda);
+}
+
+/* Destaque para o primeiro cartão */
+.card-highlight {
+    background: linear-gradient(135deg, var(--roxo-profundo) 0%, var(--ameixa) 100%);
+    color: var(--white);
+}
+
+.card-highlight h2 {
+    color: var(--lilas-claro);
+}
+
+.card-highlight .card-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--lavanda);
+}
+
+/* Cabeçalho do Cartão */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
-    border-radius: 8px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.card-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--lavanda);
 }
 
-th, td {
-    border: 1px solid #000000;
-    padding: 8px;
-    text-align: center;
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--lilas-claro);
+    color: var(--violeta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-th {
-    background-color: #eeeeee;
+/* Corpo do Cartão e Animação de Carregamento */
+.card-body {
+    font-size: 1.5rem;
+    font-weight: 700;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.card-body.loading {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--violeta);
+    gap: 10px;
+}
+
+.card-highlight .card-body.loading {
+    color: var(--lavanda);
+}
+
+/* Spinner de Carregamento */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(128, 104, 168, 0.2);
+    border-top-color: var(--violeta);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.card-highlight .spinner {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--white);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Estilos para valores reais (quando injetados pelo JS) */
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.metric-unit {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 4px;
+    opacity: 0.8;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .dashboard-container {
+        margin: 20px auto;
+        padding: 0 16px;
+    }
 }
